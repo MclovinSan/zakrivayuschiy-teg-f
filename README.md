@@ -1,1 +1,1 @@
-https://mclovinsan.github.io/zakrivayuschiy-teg-f/
+https://mclovinsan.github.io/zakrivayuschiy-teg-f

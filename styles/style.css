@@ -1,7 +1,17 @@
+.accent-block {
+  font-family: var(--font-main);
+  font-weight: var(--text-weight);
+  border: var(--border);
+}
+
+.button {
+  cursor: pointer;
+  font-size: 14px;
+}
+
 .page {
   display: grid;
-  gap: 95px;
-  font-family: var(--font-inter), sans-serif;
+  font-family: var(--font-base);
   justify-items: center;
   font-variation-settings: 'wght' var(--text-weight);
   min-inline-size: 320px;
@@ -15,16 +25,27 @@
   }
 }
 
-.header {
+.heading {
   display: grid;
+  margin-bottom: 95px;
   gap: 20px;
   background-color: var(--bg-color);
   padding: clamp(7.625rem, 0.751vw + 7.449rem, 8.125rem) clamp(1rem, 9.953vw - 1.333rem, 7.625rem);
   justify-items: center;
-  font-family: var(--font-press), monospace, sans-serif;
-  font-weight: var(--text-weight);
-  border: var(--border);
   width: clamp(23.438rem, 30.516vw + 16.285rem, 43.75rem);
+  text-transform: uppercase;
+}
+
+.heading__title {
+  font-size: clamp(49px, 1.502vw + 2.71rem, 4.063rem);
+}
+
+.heading__text {
+  font-size: clamp(0.875rem, 0.845vw + 0.677rem, 1.438rem);
+}
+
+.card {
+  max-width: 700px;
 }
 
 .main {
@@ -32,22 +53,9 @@
   gap: 50px;
 }
 
-.header h1 {
-  font-size: clamp(49px, 1.502vw + 2.71rem, 4.063rem);
-}
-
-.header p {
-  font-size: clamp(0.875rem, 0.845vw + 0.677rem, 1.438rem);
-  text-transform: uppercase;
-}
-
-.card {
-  max-width: 700px;
-}
-
 .card-header {
   padding: 4.5px 10px;
-  font-family: var(--font-inter), sans-serif;
+  font-family: var(--font-base);
   font-variation-settings: 'wght' var(--title-weight);
   background-color: var(--bg-color);
   font-size: 18px;
@@ -62,21 +70,22 @@
   border-left: var(--border);
 }
 
-.image-container::after {
-  content: '</HTML>';
+.image-container__label {
   position: absolute;
+  text-transform: uppercase;
   color: #000;
   text-shadow: 0 1px var(--bg-color), 1px 0 var(--bg-color), 0 -1px var(--bg-color), -1px 0 var(--bg-color);
   top: 25px;
   right: 25px;
-  font-family: var(--font-press), monospace, sans-serif;
+  font-family: var(--font-main);
   font-weight: 400;
   font-size: 14px;
   mix-blend-mode: hard-light;
   opacity: 0.5;
   @supports (-webkit-text-stroke: 1px var(--bg-color)) or (text-stroke: 1px var(--bg-color)) {
+    text-shadow: none;
     -webkit-text-stroke: 1px var(--bg-color);
-    text-stroke: 1px var(--bg-color);
+     text-stroke: 1px var(--bg-color);
   }
 }
 
@@ -122,14 +131,8 @@
 }
 
 .card__like-button {
-  width: 130px;
+  inline-size: 130px;
   padding: 10px 0;
-}
-
-.font-button {
-  font-family: var(--font-press), monospace, sans-serif;
-  font-size: 14px;
-  font-weight: 400;
 }
 
 .button__text {
@@ -140,55 +143,54 @@
 
 .card-footer p {
   font-size: 18px;
-  font-weight: 410;
 }
 
-.grayscale {
+.filter-grayscale {
   filter: grayscale(70%);
 }
 
-.saturate {
+.filter-saturate {
   filter: saturate(300%)
 }
 
-.hue-rotate {
+.filter-hue-rotate {
   filter: hue-rotate(30deg);
 }
 
-.invert {
-  filter: invert(0.8)
+.filter-invert {
+  filter: invert(0.8);
 }
 
-.sepia {
-  filter: sepia(0.9)
+.filter-sepia {
+  filter: sepia(0.9);
 }
 
-.blur {
+.filter-blur {
    filter: blur(15px);
 }
 
-.hue-rotate2 {
+.filter-accent-shift {
   filter: blur(2px) saturate(0.85) contrast(0.7) hue-rotate(90deg);
 }
 
 .save-button {
+  color: #fff;
   display: flex;
   flex-direction: wrap;
   gap: 8px;
   justify-content: center;
   align-items: center;
   justify-self: center;
-  width: clamp(19.125rem, 2.723vw + 18.487rem, 20.938rem);
-  height: 55px;
+  width: 335px;
   border: var(--border);
+  padding: 17px;
   @media (width <= 375px) {
-    height: 84px;
+    width: 306px;
     flex-direction: column;
   }
 }
 
 .save-button-svg {
-  stroke: var(--bg-color);
   mix-blend-mode: difference;
   z-index: 2;
   width: 28px;
@@ -199,7 +201,7 @@
   }
 }
 
-.dialog-window svg {
+.dialog-window-svg {
   height: 39px;
   width: 39px;
 }
@@ -224,7 +226,7 @@ dialog[open]::backdrop {
   background: rgba(0, 0, 0, 0.75);
 }
 
-.dialog-window div {
+.dialog-window-content-container {
   display: grid;
   gap: 20px;
   grid-template-columns: 0.143fr 1fr;
@@ -233,13 +235,13 @@ dialog[open]::backdrop {
   justify-content: start;
 }
 
-.dialog-window span {
+.dialog-window-text {
   text-transform: uppercase;
 }
 
-.dialog-window button {
+.dialog-window-button {
   background-color: transparent;
   border: var(--border);
   width: 100%;
-  padding: 12.5px 0;
+  padding: 9px 0;
 }

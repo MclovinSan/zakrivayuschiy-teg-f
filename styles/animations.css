@@ -101,7 +101,6 @@
   overflow: hidden;
   background-color: var(--bg-color);
   position: relative;
-  border: var(--border);
 }
 
 .card-button-animation:focus {
